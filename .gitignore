@@ -16,6 +16,7 @@ frontend/.env
 
 # Laravel backend
 backend/vendor/
+backend/vendor_d_backup_*/
 backend/node_modules/
 backend/public/build/
 backend/storage/*.key
