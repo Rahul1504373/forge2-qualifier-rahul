@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "gateway": {
+    "provider": "openai-compatible",
+    "baseUrl": "http://localhost:11434/v1",
+    "apiKeyEnv": "OPENCLAW_API_KEY",
+    "model": "qwen2.5-coder"
+  },
+  "channels": {
+    "primary": "slack:#agent-coder"
+  },
+  "plugins": [
+    {
+      "name": "@openclaw/slack",
+      "enabled": true,
+      "settings": {
+        "socketMode": true,
+        "appTokenEnv": "SLACK_APP_TOKEN",
+        "botTokenEnv": "SLACK_BOT_TOKEN"
+      }
+    }
+  ]
+}

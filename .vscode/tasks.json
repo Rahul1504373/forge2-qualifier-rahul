@@ -1,0 +1,258 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "frontend-validate",
+			"type": "shell",
+			"command": "cd frontend && npm run lint && npm run build",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "backend-validate",
+			"type": "shell",
+			"command": "cd backend && php artisan --version && php artisan migrate --force && php artisan test",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "frontend-validate-bash",
+			"type": "shell",
+			"command": "bash",
+			"args": [
+				"-lc",
+				"cd \"/mnt/d/HACKATHONS/FORGE2_NMG.LABS/21 June 2026/forge2-qualifier/frontend\" && npm run lint && npm run build"
+			],
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "backend-validate-bash",
+			"type": "shell",
+			"command": "bash",
+			"args": [
+				"-lc",
+				"cd \"/mnt/d/HACKATHONS/FORGE2_NMG.LABS/21 June 2026/forge2-qualifier/backend\" && php artisan --version && php artisan migrate --force && php artisan test"
+			],
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "frontend-validate-fixed",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/frontend && npm run lint && npm run build\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "backend-validate-fixed",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/backend && php artisan --version && php artisan migrate --force && php artisan test\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "terminal-sanity",
+			"type": "shell",
+			"command": "bash -lc \"echo sanity-ok && php -v | head -n 1 && node -v\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "frontend-final-validate",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/frontend && npm run lint && npm run build\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "frontend-final-validate-2",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/frontend && npm run lint && npm run build\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "backend-final-validate",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/backend && php artisan --version && php artisan migrate --force && php artisan test\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "backend-composer-install",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/backend && composer install --no-interaction\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "backend-vendor-check",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/backend && test -f vendor/autoload.php && echo vendor-ok\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "backend-composer-install-2",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/backend && composer install --no-interaction -vvv\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "backend-final-validate-2",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/backend && php artisan --version && php artisan migrate --force && php artisan test\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "backend-dump-autoload",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/backend && composer dump-autoload -o -vvv\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "backend-autoload-diagnose",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/backend && composer dump-autoload -o && ls -la vendor | head -n 20 && ls -la vendor/composer | head -n 40\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "backend-clean-vendor",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/backend && rm -rf vendor composer.lock && composer install --no-interaction --no-scripts -vvv\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "backend-vendor-list",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/backend && ls -la vendor | head -n 40 && ls -la vendor/composer | head -n 80\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "check-autoload-now",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/backend && if [ -f vendor/autoload.php ]; then echo autoload_present; else echo autoload_missing; fi\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "inspect-composer-autoload-files",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/backend && ls -la vendor/composer | rg 'autoload|installed|ClassLoader|tmp-' -n || true\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "inspect-composer-autoload-files-2",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/backend && ls -la vendor/composer | grep -E 'autoload|installed|ClassLoader|tmp-' || true\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "backend-reinstall-source",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/backend && rm -rf vendor composer.lock && COMPOSER_MEMORY_LIMIT=-1 composer install --no-interaction --prefer-source --no-progress\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "disk-check",
+			"type": "shell",
+			"command": "bash -lc \"df -h /mnt/d && df -ih /mnt/d\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "repo-size-audit",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier && du -sh ./* ./.git 2>/dev/null | sort -h\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "key-dir-sizes",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier && du -sh frontend backend hermes-env test-env .git 2>/dev/null\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "testenv-size",
+			"type": "shell",
+			"command": "bash -lc \"du -sh /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/test-env 2>/dev/null\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "backend-vendor-size",
+			"type": "shell",
+			"command": "bash -lc \"du -sh /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/backend/vendor 2>/dev/null\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "vendor-symlink-workaround",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/backend && mv vendor vendor_d_backup_$(date +%s) 2>/dev/null || true && mkdir -p /tmp/forge2-backend-vendor && ln -sfn /tmp/forge2-backend-vendor vendor && ls -la | grep vendor\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "backend-composer-via-symlink",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/backend && COMPOSER_MEMORY_LIMIT=-1 composer install --no-interaction --prefer-dist --no-progress\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "check-autoload-after-symlink-install",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/backend && if [ -f vendor/autoload.php ]; then echo autoload_present; else echo autoload_missing; fi && ls -la vendor | head -n 5\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "backend-final-validate-symlink-vendor",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/backend && php artisan --version && php artisan migrate --force && php artisan test\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "backend-final-validate-sqlite",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/backend && php artisan key:generate --force && php artisan migrate --force && php artisan test\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "backend-final-validate-sqlite-2",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/backend && php artisan key:generate --force && php artisan migrate --force && php artisan test\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "frontend-final-validate-3",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/frontend && npm run lint && npm run build\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "frontend-build-artifact-check",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/frontend && test -f dist/index.html && echo frontend_build_artifact_present || echo frontend_build_artifact_missing\"",
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}

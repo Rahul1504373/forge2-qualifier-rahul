@@ -2,3 +2,25 @@
 node_modules/
 __pycache__/
 *.log
+
+# Python virtual environments
+hermes-env/
+test-env/
+.venv/
+venv/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+
+# Laravel backend
+backend/vendor/
+backend/node_modules/
+backend/public/build/
+backend/storage/*.key
+backend/.env
+
+# System
+.DS_Store
+Thumbs.db
