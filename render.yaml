@@ -1,27 +1,19 @@
 services:
   - type: web
-    name: forge2-qualifier-backend
-    runtime: php
-    rootDir: backend
+    name: forge2-kanban-api
+    env: php
     plan: free
-    buildCommand: composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
-    startCommand: ./render-start.sh
+    rootDir: backend
+    buildCommand: composer install --no-dev && php artisan migrate --force
+    startCommand: php artisan serve --host=0.0.0.0 --port=10000
     envVars:
+      - key: APP_KEY
+        sync: false
       - key: APP_ENV
         value: production
       - key: APP_DEBUG
-        value: "false"
-      - key: APP_URL
-        value: https://forge2-qualifier-backend.onrender.com
-      - key: APP_KEY
-        sync: false
+        value: false
       - key: DB_CONNECTION
         value: sqlite
       - key: DB_DATABASE
-        value: /opt/render/project/src/backend/database/database.sqlite
-      - key: CACHE_DRIVER
-        value: file
-      - key: SESSION_DRIVER
-        value: file
-      - key: QUEUE_CONNECTION
-        value: sync
+        value: /var/data/database.sqlite
