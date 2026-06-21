@@ -253,6 +253,88 @@
 			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier/frontend && test -f dist/index.html && echo frontend_build_artifact_present || echo frontend_build_artifact_missing\"",
 			"problemMatcher": [],
 			"group": "build"
+		},
+		{
+			"label": "post-cleanup-git-status",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier && git status --short\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "audit-git-state",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier && git branch --show-current && git remote get-url origin && git rev-parse HEAD && git rev-parse origin/main && git status --short\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "final-lockin-commit-push",
+			"type": "shell",
+			"command": "bash",
+			"args": [
+				"-lc",
+				"cd \"/mnt/d/HACKATHONS/FORGE2_NMG.LABS/21 June 2026/forge2-qualifier\" && git add DEPLOYMENT.md render.yaml backend/render-start.sh frontend/vercel.json .gitignore LOCKIN_REPLACEMENT_TEMPLATES.md backend/vendor_d_backup_1782028662 && git reset .vscode/tasks.json && (git commit -m \"chore: cleanup backup vendor and add vercel/render deployment setup\" || true) && git push origin main && git rev-parse HEAD && git rev-parse origin/main && git rev-list --left-right --count origin/main...HEAD"
+			],
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "final-lockin-commit-push-2",
+			"type": "shell",
+			"command": "bash",
+			"args": [
+				"-lc",
+				"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier && git add DEPLOYMENT.md render.yaml backend/render-start.sh frontend/vercel.json .gitignore LOCKIN_REPLACEMENT_TEMPLATES.md backend/vendor_d_backup_1782028662 && git reset .vscode/tasks.json && (git commit -m \"chore: cleanup backup vendor and add vercel/render deployment setup\" || true) && git push origin main && git rev-parse HEAD && git rev-parse origin/main && git rev-list --left-right --count origin/main...HEAD"
+			],
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "final-lockin-commit-push-3",
+			"type": "shell",
+			"command": "git add DEPLOYMENT.md render.yaml backend/render-start.sh frontend/vercel.json .gitignore LOCKIN_REPLACEMENT_TEMPLATES.md backend/vendor_d_backup_1782028662 && git reset .vscode/tasks.json && (git commit -m \"chore: cleanup backup vendor and add vercel/render deployment setup\" || true) && git push origin main && git rev-parse HEAD && git rev-parse origin/main && git rev-list --left-right --count origin/main...HEAD",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "final-lockin-commit-push-4",
+			"type": "shell",
+			"command": "bash",
+			"args": [
+				"-lc",
+				"git add DEPLOYMENT.md render.yaml backend/render-start.sh frontend/vercel.json .gitignore LOCKIN_REPLACEMENT_TEMPLATES.md backend/vendor_d_backup_1782028662 && git reset .vscode/tasks.json && (git commit -m \"chore: cleanup backup vendor and add vercel/render deployment setup\" || true) && git push origin main && git rev-parse HEAD && git rev-parse origin/main && git rev-list --left-right --count origin/main...HEAD"
+			],
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "post-push-local-status",
+			"type": "shell",
+			"command": "git status -sb && git log --oneline -1",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "head-files",
+			"type": "shell",
+			"command": "git show --name-only --pretty=format: -1",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "verify-head-deploy-files",
+			"type": "shell",
+			"command": "git ls-tree -r --name-only HEAD render.yaml frontend/vercel.json",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "branch-ahead-status",
+			"type": "shell",
+			"command": "git status -sb",
+			"problemMatcher": [],
+			"group": "build"
 		}
 	]
 }
