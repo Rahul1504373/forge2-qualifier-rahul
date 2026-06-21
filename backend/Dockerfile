@@ -11,7 +11,7 @@ COPY backend/ .
 
 RUN composer install --no-dev --optimize-autoloader
 RUN touch database/database.sqlite
-RUN php artisan migrate --force
+RUN DB_CONNECTION=sqlite DB_DATABASE=/app/database/database.sqlite php artisan migrate --force
 
 EXPOSE 10000
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=10000"]
