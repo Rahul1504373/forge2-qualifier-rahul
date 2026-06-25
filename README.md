@@ -6,8 +6,8 @@ Tiny Trello-style Kanban built for Forge 2 Edition 1 qualifier with a free-stack
 - https://github.com/Rahul1504373/forge2-qualifier-rahul
 
 ## Live URL
-- Frontend: ADD_YOUR_VERCEL_OR_NETLIFY_URL
-- API: ADD_YOUR_RENDER_OR_RAILWAY_URL
+- Frontend: pending (set after Vercel deploy)
+- API: https://forge2-kanban-api.onrender.com
 
 ## What this app does
 - Create and switch boards.
@@ -65,6 +65,7 @@ Backend runs at http://127.0.0.1:8000
 Frontend runs at http://127.0.0.1:5173
 
 ## API endpoints (implemented)
+- GET /api/health
 - GET /api/boards
 - POST /api/boards
 - POST /api/boards/{board}/lists
@@ -81,4 +82,4 @@ Frontend runs at http://127.0.0.1:5173
 
 ## Notes
 - This repository intentionally excludes secrets; use placeholder values in .env.example.
-- Replace live URL placeholders and evidence placeholders before final submission.
+- Frontend runs in API mode when `VITE_API_BASE_URL` is defined, otherwise falls back to local demo state.

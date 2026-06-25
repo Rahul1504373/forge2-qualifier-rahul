@@ -8,19 +8,33 @@ use App\Models\Member;
 use App\Models\Tag;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class KanbanController extends Controller
 {
     public function index(): JsonResponse
     {
-        $boards = Board::with([
-            'members',
-            'tags',
-            'lists.cards.tags',
-            'lists.cards.member',
-        ])->get();
+        try {
+            $boards = Board::with([
+                'members',
+                'tags',
+                'lists.cards.tags',
+                'lists.cards.member',
+            ])->get();
 
-        return response()->json($boards);
+            return response()->json($boards);
+        } catch (\Throwable $exception) {
+            Log::error('Failed to load boards.', [
+                'message' => $exception->getMessage(),
+            ]);
+
+            // Return a safe payload instead of an unhandled 500 so the frontend can degrade gracefully.
+            return response()->json([
+                'status' => 'degraded',
+                'message' => 'Board data is temporarily unavailable.',
+                'boards' => [],
+            ], 503);
+        }
     }
 
     public function storeBoard(Request $request): JsonResponse

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import './App.css'
 
 const makeId = () =>
@@ -40,7 +40,25 @@ const seedBoard = {
   ],
 }
 
-const apiBaseUrl = import.meta.env.VITE_API_BASE_URL
+const normalizeApiBaseUrl = (value) => {
+  if (!value || typeof value !== 'string') {
+    return ''
+  }
+
+  return value.trim().replace(/\/+$/, '')
+}
+
+const resolveApiBaseUrl = () => {
+  const configured = normalizeApiBaseUrl(import.meta.env.VITE_API_BASE_URL)
+  if (configured) {
+    return configured
+  }
+
+  // Fallback keeps production frontend wired even if host env variables are missing.
+  return normalizeApiBaseUrl('https://forge2-kanban-api.onrender.com/api')
+}
+
+const apiBaseUrl = resolveApiBaseUrl()
 
 const normalizeBoard = (board) => ({
   id: String(board.id),
@@ -76,6 +94,10 @@ const parseCardPayload = (card) => ({
 })
 
 async function request(path, options = {}) {
+  if (!apiBaseUrl) {
+    throw new Error('VITE_API_BASE_URL is not configured.')
+  }
+
   const response = await fetch(`${apiBaseUrl}${path}`, {
     headers: {
       'Content-Type': 'application/json',
@@ -85,7 +107,10 @@ async function request(path, options = {}) {
   })
 
   if (!response.ok) {
-    throw new Error(`Request failed with status ${response.status}`)
+    const errorBody = await response.text()
+    throw new Error(
+      `Request failed with status ${response.status}${errorBody ? `: ${errorBody}` : ''}`,
+    )
   }
 
   return response.json()
@@ -105,7 +130,7 @@ function App() {
   const [apiError, setApiError] = useState('')
   const isApiMode = Boolean(apiBaseUrl)
 
-  const loadBoards = async () => {
+  const loadBoards = useCallback(async () => {
     if (!isApiMode) {
       return
     }
@@ -118,13 +143,26 @@ function App() {
 
       const normalized = data.map(normalizeBoard)
       setBoards(normalized)
-      setActiveBoardId((current) => current || normalized[0].id)
-      setNewCardListId(normalized[0].lists[0]?.id || '')
+      setActiveBoardId((current) =>
+        normalized.some((board) => board.id === current)
+          ? current
+          : (normalized[0]?.id ?? ''),
+      )
+      setNewCardListId((current) => {
+        const board = normalized.find((item) => item.id === activeBoardId) || normalized[0]
+        const validCurrent = board?.lists.some((list) => list.id === current)
+        return validCurrent ? current : (board?.lists[0]?.id ?? '')
+      })
       setApiError('')
     } catch {
       setApiError('API unavailable, using local mode.')
     }
-  }
+  }, [activeBoardId, isApiMode])
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    void loadBoards()
+  }, [loadBoards])
 
   const activeBoard = useMemo(
     () => boards.find((board) => board.id === activeBoardId),

@@ -1,16 +1,41 @@
-# React + Vite
+# Frontend (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This frontend supports two modes:
+- API mode (recommended): uses the Laravel backend through `VITE_API_BASE_URL`
+- Local demo mode: uses in-memory seed data when `VITE_API_BASE_URL` is not set
 
-Currently, two official plugins are available:
+## Environment
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Create `frontend/.env`:
 
-## React Compiler
+```env
+VITE_API_BASE_URL=http://127.0.0.1:8000/api
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+For production (Vercel), set:
 
-## Expanding the ESLint configuration
+```env
+VITE_API_BASE_URL=https://<your-render-service>.onrender.com/api
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Local run
+
+1. Install dependencies: `npm install`
+2. Start dev server: `npm run dev`
+3. Open the printed local URL (usually `http://127.0.0.1:5173`)
+
+## Expected API contract
+
+- `GET /boards`
+- `POST /boards`
+- `POST /boards/{board}/lists`
+- `POST /boards/{board}/members`
+- `POST /cards`
+- `PATCH /cards/{card}`
+- `GET /health`
+
+## Behavior details
+
+- The app auto-loads boards on mount in API mode.
+- If API calls fail, the UI falls back to local demo data and shows an error banner.
+- The "Sync API" button can be used for manual refresh.

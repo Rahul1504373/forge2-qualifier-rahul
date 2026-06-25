@@ -14,11 +14,13 @@ This repository is now prepared for:
    - Paste the full output value into Render env var APP_KEY
 5. Trigger Manual Deploy -> Deploy latest commit.
 6. Verify health:
+   - Open https://<your-render-service>.onrender.com/api/health (should return `status: ok`)
    - Open https://<your-render-service>.onrender.com/api/boards
 
 Notes:
-- Startup script backend/render-start.sh auto-creates SQLite DB and runs migrations.
-- Default APP_URL in render.yaml should be updated to your actual Render hostname.
+- Startup script backend/render-start.sh auto-creates SQLite DB and runs migrations at container start.
+- render.yaml now sets `DB_CONNECTION=sqlite` and `DB_DATABASE=/app/database/database.sqlite`.
+- Update APP_URL in render.yaml to your actual Render hostname if your service name differs.
 
 ## 2) Deploy frontend to Vercel
 
@@ -38,7 +40,7 @@ After both deployments succeed, update:
 
 ## 4) Quick verification checklist
 
-- Backend URL responds: GET /api/boards
+- Backend URL responds: GET /api/health and GET /api/boards
 - Frontend loads from Vercel URL
 - Frontend can create board/list/card through Render API
 - No CORS error in browser console
