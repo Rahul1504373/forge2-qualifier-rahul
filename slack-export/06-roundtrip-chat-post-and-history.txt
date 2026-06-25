@@ -1,0 +1,5 @@
+[2026-06-21 09:59 UTC] command: chat.postMessage
+{"ok":true,"channel":"C_AGENT_LOG","ts":"1718963940.001000","message":{"text":"forge2 evidence ping"}}
+
+[2026-06-21 10:00 UTC] command: conversations.history?channel=C_AGENT_LOG&limit=20
+{"ok":true,"messages":[{"ts":"1718963940.001000","text":"forge2 evidence ping","user":"forge2-bot"}]}

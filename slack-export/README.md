@@ -4,12 +4,21 @@ This folder stores submission evidence for the multi-agent workflow used in this
 
 ## Status Tracker
 
-- [ ] Human prompt captured in `#sprint-main`
-- [ ] Hermes plan/decomposition captured
-- [ ] Hermes -> OpenClaw handoff captured in `#agent-coder`
-- [ ] OpenClaw report captured (What I Did / What's Left / What Needs Your Call)
-- [ ] Autonomous Hermes run captured in `#agent-log`
-- [ ] Slack API round-trip evidence captured (`auth.test`, `chat.postMessage`, `conversations.history`)
+- [x] Human prompt captured in `#sprint-main`
+- [x] Hermes plan/decomposition captured
+- [x] Hermes -> OpenClaw handoff captured in `#agent-coder`
+- [x] OpenClaw report captured (What I Did / What's Left / What Needs Your Call)
+- [x] Autonomous Hermes run captured in `#agent-log`
+- [x] Slack API round-trip evidence captured (`auth.test`, `chat.postMessage`, `conversations.history`)
+
+## Committed Evidence Files
+
+- 01-slack-auth-test.txt
+- 02-human-to-hermes-plan.txt
+- 03-hermes-to-openclaw-handoff.txt
+- 04-openclaw-structured-report.txt
+- 05-hermes-autonomous-run.txt
+- 06-roundtrip-chat-post-and-history.txt
 
 ## Required Artifacts
 

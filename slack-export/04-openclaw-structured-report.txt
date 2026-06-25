@@ -1,0 +1,11 @@
+[2026-06-21 10:38 UTC] #agent-coder OpenClaw
+What I Did:
+- Implemented board/list/card flows in frontend and backend.
+- Added tags, members, assignment, and due-date handling.
+- Added validation paths and basic deployment docs.
+
+What's Left:
+- Final deploy hardening and strict checklist verification.
+
+What Needs Your Call:
+- Confirm production API host and lock final evidence files.

@@ -9,14 +9,16 @@ This frontend supports two modes:
 Create `frontend/.env`:
 
 ```env
+VITE_API_BASE_URL=https://forge2-kanban-api.onrender.com/api
+```
+
+For local backend development, override with:
+
+```env
 VITE_API_BASE_URL=http://127.0.0.1:8000/api
 ```
 
-For production (Vercel), set:
-
-```env
-VITE_API_BASE_URL=https://<your-render-service>.onrender.com/api
-```
+For production (Vercel), keep `VITE_API_BASE_URL=https://forge2-kanban-api.onrender.com/api`.
 
 ## Local run
 

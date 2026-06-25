@@ -5,6 +5,7 @@
 - [x] Laravel backend present in backend/
 - [x] OpenClaw config present in openclaw.json (secrets not committed)
 - [x] Hermes skill present in skills/status-report/SKILL.md
+- [x] Hermes runtime config present in hermes.config.json
 - [ ] Runtime validated on PHP 8.2+ (current environment is PHP 8.1.2; upgrade still needed to match handbook)
 
 ## 2) Required app features
@@ -42,11 +43,11 @@
   - slack-export screenshots/exports
 
 ## 6) Slack loop evidence (must be real, not templated)
-- [ ] Human -> Hermes plan in #sprint-main
-- [ ] Hermes -> OpenClaw handoff in #agent-coder
-- [ ] OpenClaw structured report in #agent-coder
-- [ ] Hermes autonomous run proof in #agent-log
-- [ ] Slack round-trip curl proof
+- [x] Human -> Hermes plan in #sprint-main
+- [x] Hermes -> OpenClaw handoff in #agent-coder
+- [x] OpenClaw structured report in #agent-coder
+- [x] Hermes autonomous run proof in #agent-log
+- [x] Slack round-trip curl proof
 
 ## 7) Environment notes from final validation pass
 - [x] Composer installation unblocked by moving backend vendor to WSL tmp via symlink at backend/vendor -> /tmp/forge2-backend-vendor

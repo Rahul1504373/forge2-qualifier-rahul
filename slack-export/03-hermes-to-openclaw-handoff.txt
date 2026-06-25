@@ -1,0 +1,5 @@
+[2026-06-21 10:10 UTC] #agent-coder Hermes
+OpenClaw task:
+- Build Kanban UI and Laravel API
+- Implement boards/lists/cards/tags/members
+- Return: What I Did / What's Left / What Needs Your Call

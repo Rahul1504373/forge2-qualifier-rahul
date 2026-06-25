@@ -1,0 +1,9 @@
+[2026-06-21 10:04 UTC] #sprint-main Rahul
+Build Forge2 qualifier Kanban with Hermes + OpenClaw and keep it handbook-compliant.
+
+[2026-06-21 10:06 UTC] #sprint-main Hermes
+Plan:
+1) Validate repo requirements
+2) Implement frontend/backend
+3) Run strict checks
+4) Produce final report

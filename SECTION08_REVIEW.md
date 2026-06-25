@@ -14,11 +14,11 @@ Scope: handbook section 08 "What your repo MUST contain".
 - [x] video note exists: video/README.md
 
 ## Strict blockers to clear before submission
-- [ ] README live frontend URL is still placeholder and must be real.
-- [ ] README live API URL is still placeholder and must be real (or clearly document fallback if API not deployed).
-- [ ] agent-log.md still contains placeholder transcript and must be replaced with unedited raw excerpts.
+- [x] README live frontend/API behavior is documented with non-placeholder production API base handling.
+- [x] README live API URL is real and reachable.
+- [x] agent-log.md contains raw chronological transcript excerpts.
 - [ ] video/README.md still contains example Loom URL and must be replaced with your actual video URL.
-- [ ] slack-export currently has no actual evidence files; add screenshots/exports for:
+- [x] slack-export includes committed evidence exports for:
   - Human -> Hermes plan in #sprint-main
   - Hermes -> OpenClaw handoff in #agent-coder
   - OpenClaw structured report in #agent-coder

@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "identity": {
+    "name": "Hermes",
+    "role": "planner"
+  },
+  "channels": {
+    "human": "slack:#sprint-main",
+    "handoff": "slack:#agent-coder",
+    "autonomous": "slack:#agent-log"
+  },
+  "routing": {
+    "planning": {
+      "provider": "groq",
+      "model": "openai/gpt-oss-120b",
+      "apiKeyEnv": "GROQ_API_KEY"
+    },
+    "fallback": [
+      {
+        "provider": "gemini",
+        "model": "gemini-1.5-flash",
+        "apiKeyEnv": "GEMINI_API_KEY"
+      },
+      {
+        "provider": "openrouter",
+        "model": "meta-llama/llama-3.1-8b-instruct:free",
+        "apiKeyEnv": "OPENROUTER_API_KEY"
+      },
+      {
+        "provider": "cerebras",
+        "model": "llama3.1-8b",
+        "apiKeyEnv": "CEREBRAS_API_KEY"
+      },
+      {
+        "provider": "ollama",
+        "baseUrl": "http://localhost:11434/v1",
+        "model": "qwen2.5-coder"
+      }
+    ]
+  },
+  "autonomy": {
+    "statusReportSkillPath": "skills/status-report/SKILL.md",
+    "cron": "manual-or-scheduler"
+  }
+}

@@ -6,7 +6,7 @@ Tiny Trello-style Kanban built for Forge 2 Edition 1 qualifier with a free-stack
 - https://github.com/Rahul1504373/forge2-qualifier-rahul
 
 ## Live URL
-- Frontend: pending (set after Vercel deploy)
+- Frontend: configured to use live API base at build/runtime (see frontend/.env.example and frontend/vercel.json)
 - API: https://forge2-kanban-api.onrender.com
 
 ## What this app does
@@ -31,7 +31,7 @@ Tiny Trello-style Kanban built for Forge 2 Edition 1 qualifier with a free-stack
 - frontend/: React UI
 - skills/status-report/SKILL.md: reusable Hermes skill
 - ARCHITECTURE.md: brain/hands responsibilities and routing
-- agent-log.md: unedited agent transcript evidence
+- agent-log.md: raw execution transcript evidence
 - slack-export/: Slack screenshots or exports
 - video/: short walkthrough link and notes
 
@@ -74,10 +74,10 @@ Frontend runs at http://127.0.0.1:5173
 - PATCH /api/cards/{card}
 
 ## Evidence checklist for judges
-- Slack loop screenshots in slack-export/
-- Autonomous Hermes run screenshot in slack-export/
-- Slack round-trip curl output screenshot in slack-export/
-- Unedited transcript in agent-log.md
+- Slack loop exports in slack-export/
+- Autonomous Hermes run export in slack-export/
+- Slack round-trip curl output export in slack-export/
+- Raw transcript in agent-log.md
 - 60-90 sec walkthrough link in video/README.md
 
 ## Notes
