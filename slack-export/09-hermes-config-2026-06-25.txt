@@ -1,0 +1,11 @@
+[2026-06-25] source: VS Code task show-hermes-config
+command:
+./test-env/bin/hermes config
+
+result excerpt:
+- Config path: /home/girdh/.hermes/config.yaml
+- Model provider: custom
+- Model name: qwen2.5:3b-instruct
+- Base URL: http://localhost:11434/v1
+- Context length: 32768
+- Messaging Platforms: Telegram not configured, Discord not configured (Slack validated via status task)

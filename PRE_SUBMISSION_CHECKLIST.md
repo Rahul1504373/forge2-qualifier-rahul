@@ -36,7 +36,7 @@
 ## 5) Security and submission hygiene
 - [x] No real tokens found in key config/docs files
 - [x] .gitignore updated for env files and local environments
-- [ ] Replace placeholders before submit:
+- [x] Replace placeholders before submit:
   - README live URLs
   - video/README.md walkthrough link
   - agent-log.md raw transcript

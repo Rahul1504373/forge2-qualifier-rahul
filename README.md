@@ -6,8 +6,13 @@ Tiny Trello-style Kanban built for Forge 2 Edition 1 qualifier with a free-stack
 - https://github.com/Rahul1504373/forge2-qualifier-rahul
 
 ## Live URL
-- Frontend: configured to use live API base at build/runtime (see frontend/.env.example and frontend/vercel.json)
+- Frontend: https://forge2-qualifier-rahul.vercel.app
 - API: https://forge2-kanban-api.onrender.com
+
+Vercel deployment requirement:
+- Set VITE_API_BASE_URL in Project Settings -> Environment Variables to https://forge2-kanban-api.onrender.com/api
+- Redeploy after changing environment variables so the new build uses the API base.
+- Current backend health check: GET https://forge2-kanban-api.onrender.com/api/health -> 200 {"status":"ok","database":"up"} (verified 2026-06-26)
 
 ## What this app does
 - Create and switch boards.
@@ -83,3 +88,8 @@ Frontend runs at http://127.0.0.1:5173
 ## Notes
 - This repository intentionally excludes secrets; use placeholder values in .env.example.
 - Frontend runs in API mode when `VITE_API_BASE_URL` is defined, otherwise falls back to local demo state.
+
+## PHP Version Note
+Local WSL environment uses PHP 8.1.2 for development.
+Production deployment (Render) uses PHP 8.2 via Docker image `php:8.2-cli`.
+See backend/Dockerfile for the production runtime configuration.

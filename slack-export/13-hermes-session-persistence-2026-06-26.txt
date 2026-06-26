@@ -1,0 +1,14 @@
+[2026-06-26] source: terminal Hermes sessions list
+command:
+./test-env/bin/hermes sessions list
+
+result excerpt:
+- Session IDs visible across prior days, including:
+  - 20260621_110743_5cf40c
+  - 20260621_092418_dfb749
+  - 20260621_091439_33c6e2
+  - 20260621_091118_eed266
+
+interpretation:
+- Hermes session store persists across runs/days.
+- This evidences cross-session state retention capability; explicit recall message capture is still pending due non-interactive response capture limitations for one-shot in this environment.

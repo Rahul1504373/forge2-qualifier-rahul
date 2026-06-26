@@ -1,0 +1,10 @@
+[2026-06-26] source: terminal Slack Web API check
+command:
+curl -m 20 -sS -H "Authorization: Bearer $SLACK_BOT_TOKEN" "https://slack.com/api/conversations.replies?channel=C0BBYM9FV53&ts=1782451783.311779&limit=20"
+
+result:
+{"ok":false,"error":"not_in_channel"}
+
+interpretation:
+- Workspace bot token can post/auth, but cannot read this channel thread history.
+- OpenClaw reply cannot be verified from this environment without channel-read membership or a manual Slack export screenshot.

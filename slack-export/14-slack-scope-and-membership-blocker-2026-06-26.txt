@@ -1,0 +1,11 @@
+[2026-06-26] source: hermes logs errors --since 24h
+command:
+./test-env/bin/hermes logs errors --since 24h
+
+result excerpt:
+- The server responded with: {'ok': False, 'error': 'not_in_channel'}
+- The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:read', 'provided': 'chat:write,app_mentions:read,channels:history,channels:read,im:history,users:read'}
+
+interpretation:
+- Current token/scopes allow posting but not full private-channel history/thread verification.
+- To verify OpenClaw replies in private channels, invite bot user and grant required scopes (including groups:read where applicable), then re-run thread history export.

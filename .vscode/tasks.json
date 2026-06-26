@@ -335,6 +335,136 @@
 			"command": "git status -sb",
 			"problemMatcher": [],
 			"group": "build"
+		},
+		{
+			"label": "commit-and-push-full-fix",
+			"type": "shell",
+			"command": "bash",
+			"args": [
+				"-lc",
+				"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier && git add DEPLOYMENT.md README.md agent-log.md backend/Dockerfile backend/app/Http/Controllers/KanbanController.php backend/config/database.php backend/render-start.sh backend/routes/api.php frontend/README.md frontend/src/App.jsx frontend/vercel.json render.yaml slack-export/README.md && git commit -m \"fix: harden backend startup and stabilize frontend-api wiring\" && git push origin main && git rev-parse HEAD && git rev-parse origin/main && git status -sb"
+			],
+			"group": "build"
+		},
+		{
+			"label": "commit-and-push-full-fix-2",
+			"type": "shell",
+			"command": "git add DEPLOYMENT.md README.md agent-log.md backend/Dockerfile backend/app/Http/Controllers/KanbanController.php backend/config/database.php backend/render-start.sh backend/routes/api.php frontend/README.md frontend/src/App.jsx frontend/vercel.json render.yaml slack-export/README.md && git commit -m \"fix: harden backend startup and stabilize frontend-api wiring\" && git push origin main && git rev-parse HEAD && git rev-parse origin/main && git status -sb",
+			"group": "build"
+		},
+		{
+			"label": "commit-and-push-full-fix-3",
+			"type": "shell",
+			"command": "bash",
+			"args": [
+				"-lc",
+				"git add DEPLOYMENT.md README.md agent-log.md backend/Dockerfile backend/app/Http/Controllers/KanbanController.php backend/config/database.php backend/render-start.sh backend/routes/api.php frontend/README.md frontend/src/App.jsx frontend/vercel.json render.yaml slack-export/README.md && git commit -m 'fix: harden backend startup and stabilize frontend-api wiring' && git push origin main && git rev-parse HEAD && git rev-parse origin/main && git status -sb"
+			],
+			"group": "build"
+		},
+		{
+			"label": "commit-and-push-full-fix-4",
+			"type": "shell",
+			"command": "bash",
+			"args": [
+				"-lc",
+				"git add DEPLOYMENT.md README.md agent-log.md backend/Dockerfile backend/app/Http/Controllers/KanbanController.php backend/config/database.php backend/render-start.sh backend/routes/api.php frontend/README.md frontend/src/App.jsx frontend/vercel.json render.yaml slack-export/README.md && git commit -m \"fix: harden backend startup and stabilize frontend-api wiring\" && git push origin main && git rev-parse HEAD && git rev-parse origin/main && git status -sb"
+			],
+			"group": "build"
+		},
+		{
+			"label": "commit-and-push-via-sh",
+			"type": "shell",
+			"command": "sh",
+			"args": [
+				"-c",
+				"git add DEPLOYMENT.md README.md agent-log.md backend/Dockerfile backend/app/Http/Controllers/KanbanController.php backend/config/database.php backend/render-start.sh backend/routes/api.php frontend/README.md frontend/src/App.jsx frontend/vercel.json render.yaml slack-export/README.md; git commit -m \"fix: harden backend startup and stabilize frontend-api wiring\"; git push origin main; git rev-parse HEAD; git rev-parse origin/main; git status -sb"
+			],
+			"group": "build"
+		},
+		{
+			"label": "commit-push-bashlc-inline",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier && git add DEPLOYMENT.md README.md agent-log.md backend/Dockerfile backend/app/Http/Controllers/KanbanController.php backend/config/database.php backend/render-start.sh backend/routes/api.php frontend/README.md frontend/src/App.jsx frontend/vercel.json render.yaml slack-export/README.md && git commit -m \\\"fix: harden backend startup and stabilize frontend-api wiring\\\" && git push origin main && git rev-parse HEAD && git rev-parse origin/main && git status --short\"",
+			"group": "build"
+		},
+		{
+			"label": "push-with-username",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier && git remote set-url origin https://Rahul1504373@github.com/Rahul1504373/forge2-qualifier-rahul.git && git push origin main && git rev-parse HEAD && git rev-parse origin/main && git status --short\"",
+			"group": "build"
+		},
+		{
+			"label": "commit-push-judge-fixes",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier && git add PRE_SUBMISSION_CHECKLIST.md README.md SECTION08_REVIEW.md agent-log.md frontend/.env.example frontend/README.md slack-export/README.md hermes.config.json slack-export/01-slack-auth-test.txt slack-export/02-human-to-hermes-plan.txt slack-export/03-hermes-to-openclaw-handoff.txt slack-export/04-openclaw-structured-report.txt slack-export/05-hermes-autonomous-run.txt slack-export/06-roundtrip-chat-post-and-history.txt && git commit -m \\\"docs: add judge evidence exports and hermes config\\\" && git push origin main && git rev-parse HEAD && git rev-parse origin/main && git status --short\"",
+			"group": "build"
+		},
+		{
+			"label": "hermes-runtime-diagnose",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier && echo WORKDIR_OK && ([ -f .env ] && echo env_present || echo env_missing) && if [ -f .env ]; then awk -F= '/^(SLACK_APP_TOKEN|SLACK_BOT_TOKEN|OPENCLAW_API_KEY|GROQ_API_KEY|GEMINI_API_KEY|OPENROUTER_API_KEY|CEREBRAS_API_KEY)=/{k=$1;v=$2; if(v==\\\"\\\"||v~/(your-|xapp-your|xoxb-your|ADD_YOUR)/){print k\\\"=placeholder_or_empty\\\"} else {print k\\\"=set\\\"}}' .env; fi && (ps aux | grep -Ei \\\"hermes|openclaw|slack\\\" | grep -v grep | head -n 20 || true) && ls -la hermes-env/bin && ls -la test-env/bin | head -n 60\"",
+			"group": "build"
+		},
+		{
+			"label": "inspect-hermes-cli-help",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier && ./test-env/bin/hermes --help && echo --- && ./test-env/bin/hermes-agent --help && echo --- && ./test-env/bin/hermes-acp --help\"",
+			"group": "build"
+		},
+		{
+			"label": "inspect-hermes-send-help",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier && ./test-env/bin/hermes send --help && echo --- && ./test-env/bin/hermes gateway --help && echo --- && ./test-env/bin/hermes slack --help\"",
+			"group": "build"
+		},
+		{
+			"label": "check-hermes-status-targets",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier && ./test-env/bin/hermes status && echo --- && ./test-env/bin/hermes send --list\"",
+			"group": "build"
+		},
+		{
+			"label": "send-hermes-slack-ping",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier && ./test-env/bin/hermes send --to slack:sprint-main --subject '[Hermes Check]' 'Connectivity test from forge2-qualifier workspace. If you can see this, Slack delivery works and Hermes trigger mode is the remaining step.'\"",
+			"group": "build"
+		},
+		{
+			"label": "hermes-generate-and-send",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier && ./test-env/bin/hermes -z 'Reply with exactly: Hermes online in forge2-qualifier.' | ./test-env/bin/hermes send --to slack:sprint-main\"",
+			"group": "build"
+		},
+		{
+			"label": "fix-hermes-context-and-test",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier && ./test-env/bin/hermes config set model.context_length 32768 && ./test-env/bin/hermes -z 'Reply with exactly: Hermes online in forge2-qualifier.'\"",
+			"group": "build"
+		},
+		{
+			"label": "show-hermes-config",
+			"type": "shell",
+			"command": "bash -lc \"./test-env/bin/hermes config\"",
+			"group": "build"
+		},
+		{
+			"label": "find-hermes-min-context-check",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier && grep -RIn \\\"minimum 64,000\\|64,000 required\\|context_length_override\\|minimum 64000\\\" test-env/lib/python3.11/site-packages | head -n 80\"",
+			"group": "build"
+		},
+		{
+			"label": "check-ollama-models",
+			"type": "shell",
+			"command": "bash -lc \"ollama list\"",
+			"group": "build"
+		},
+		{
+			"label": "grep-context-error-string",
+			"type": "shell",
+			"command": "bash -lc \"cd /mnt/d/HACKATHONS/FORGE2_NMG.LABS/21\\ June\\ 2026/forge2-qualifier && grep -RIn \\\"below the minimum\\|minimum.*required\\|context window\\\" test-env/lib/python3.11/site-packages | head -n 120\"",
+			"group": "build"
 		}
 	]
 }

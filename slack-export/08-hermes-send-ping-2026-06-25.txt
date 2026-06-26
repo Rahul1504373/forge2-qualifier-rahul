@@ -1,0 +1,6 @@
+[2026-06-25] source: VS Code task send-hermes-slack-ping
+command:
+./test-env/bin/hermes send --to slack:sprint-main --subject '[Hermes Check]' 'Connectivity test from forge2-qualifier workspace. If you can see this, Slack delivery works and Hermes trigger mode is the remaining step.'
+
+result:
+sent

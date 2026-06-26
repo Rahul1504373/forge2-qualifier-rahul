@@ -2,10 +2,11 @@
 set -euo pipefail
 
 export DB_CONNECTION="${DB_CONNECTION:-sqlite}"
-export DB_DATABASE="${DB_DATABASE:-/app/database/database.sqlite}"
+export DB_DATABASE="${DB_DATABASE:-/tmp/forge2-database.sqlite}"
 
 mkdir -p "$(dirname "$DB_DATABASE")"
 touch "$DB_DATABASE"
+chmod 666 "$DB_DATABASE" || true
 chmod -R ug+rw storage bootstrap/cache database || true
 
 if [ -z "${APP_KEY:-}" ]; then

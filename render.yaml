@@ -16,6 +16,6 @@ services:
       - key: DB_CONNECTION
         value: sqlite
       - key: DB_DATABASE
-        value: /app/database/database.sqlite
+        value: /tmp/forge2-database.sqlite
       - key: DB_FOREIGN_KEYS
         value: true

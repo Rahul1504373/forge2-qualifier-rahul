@@ -1,0 +1,10 @@
+[2026-06-25] source: VS Code task check-hermes-status-targets
+command:
+./test-env/bin/hermes status && echo --- && ./test-env/bin/hermes send --list
+
+result excerpt:
+- Messaging Platforms: Slack configured
+- Available targets:
+  slack:agent-coder
+  slack:agent-log
+  slack:sprint-main

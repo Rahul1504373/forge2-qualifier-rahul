@@ -1,0 +1,11 @@
+[2026-06-26] source: terminal curl
+command:
+curl -m 20 -v https://forge2-kanban-api.onrender.com/api/health
+
+result excerpt:
+- HTTP/2 200
+- content-type: application/json
+- body: {"status":"ok","database":"up"}
+
+interpretation:
+- Backend health endpoint is live and DB is reachable after Render SQLite path hardening.

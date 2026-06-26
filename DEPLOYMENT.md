@@ -14,12 +14,12 @@ This repository is now prepared for:
    - Paste the full output value into Render env var APP_KEY
 5. Trigger Manual Deploy -> Deploy latest commit.
 6. Verify health:
-   - Open https://<your-render-service>.onrender.com/api/health (should return `status: ok`)
-   - Open https://<your-render-service>.onrender.com/api/boards
+   - Open https://forge2-kanban-api.onrender.com/api/health (should return `status: ok`)
+   - Open https://forge2-kanban-api.onrender.com/api/boards
 
 Notes:
 - Startup script backend/render-start.sh auto-creates SQLite DB and runs migrations at container start.
-- render.yaml now sets `DB_CONNECTION=sqlite` and `DB_DATABASE=/app/database/database.sqlite`.
+- render.yaml sets `DB_CONNECTION=sqlite` and `DB_DATABASE=/tmp/forge2-database.sqlite` (a writable path on Render).
 - Update APP_URL in render.yaml to your actual Render hostname if your service name differs.
 
 ## 2) Deploy frontend to Vercel
@@ -29,7 +29,7 @@ Notes:
 3. Set Root Directory to frontend.
 4. Build settings are already defined by frontend/vercel.json.
 5. Add environment variable in Vercel project settings:
-   - VITE_API_BASE_URL=https://<your-render-service>.onrender.com/api
+   - VITE_API_BASE_URL=https://forge2-kanban-api.onrender.com/api
 6. Deploy.
 
 ## 3) Post-deploy lock-in updates

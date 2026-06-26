@@ -17,7 +17,7 @@ Scope: handbook section 08 "What your repo MUST contain".
 - [x] README live frontend/API behavior is documented with non-placeholder production API base handling.
 - [x] README live API URL is real and reachable.
 - [x] agent-log.md contains raw chronological transcript excerpts.
-- [ ] video/README.md still contains example Loom URL and must be replaced with your actual video URL.
+- [x] video/README.md now contains the actual walkthrough URL.
 - [x] slack-export includes committed evidence exports for:
   - Human -> Hermes plan in #sprint-main
   - Hermes -> OpenClaw handoff in #agent-coder

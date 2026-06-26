@@ -1,9 +1,10 @@
 # Walkthrough Video
 
-Add your 60-90 second walkthrough link here.
+Submission link (required 60-90 sec walkthrough):
+- Loom: https://drive.google.com/file/d/1ebCSgi4BL0u_6hZqWOP2U7KrFMKUcfnY/view?usp=drive_link
 
-Example:
-- Loom: https://www.loom.com/share/your-video-id
+Status:
+- Video URL is uploaded and linked for judge review.
 
 Cover in the video:
 1. Slack loop in action

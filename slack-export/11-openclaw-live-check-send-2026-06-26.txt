@@ -1,0 +1,14 @@
+[2026-06-26] source: terminal Hermes send --json
+command:
+./test-env/bin/hermes send --json --to slack:agent-coder --subject '[OpenClaw Live Check]' 'Please reply in-thread with: OpenClaw online in forge2-qualifier.'
+
+result:
+{
+  "success": true,
+  "platform": "slack",
+  "chat_id": "C0BBYM9FV53",
+  "message_id": "1782451783.311779"
+}
+
+interpretation:
+- Hermes delivered the verification ping to the OpenClaw channel.
